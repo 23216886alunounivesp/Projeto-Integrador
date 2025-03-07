@@ -1,8 +1,6 @@
-Ok, aqui está o seu README.md organizado e adaptado com as informações da imagem que você forneceu, juntamente com algumas melhorias para a organização:
-
 ```md
 <h1 align='center'>NOME DO PROJETO</h1>
-<h2 align='center'>SUBTÍTULO DESCRITIVO</h2>
+<h2 align='center'>Ferramenta para subsidiar a gestão baseada em análise de dados aplicada ao Centro Educacional Unificado Parque Bristol</h2>
 
 ![GitHub language count](URL_DA_BADGE)
 ![GitHub](URL_DA_LICENÇA)
@@ -10,15 +8,61 @@ Ok, aqui está o seu README.md organizado e adaptado com as informações da ima
 
 ## Descrição do Projeto
 
-[TEXTO DESCRITIVO DO PROJETO]
+Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem como objetivo criar uma ferramenta para subsidiar a gestão do Centro Educacional Unificado Parque Bristol, utilizando análise de dados como base. A ferramenta visa fornecer insights e informações úteis para a administração do centro educacional, ajudando a tomar decisões informadas.
 
 ## Participantes
 
-<table>
-<tr>
-<td align="center"><a href="LINK_GITHUB"><img style="border-radius: 50%;" src="FOTO_PERFIL" width="100px;" alt="NOME"/><br /><sub><b>NOME</b></sub></a><br/></td>
-[REPETIR PARA CADA PARTICIPANTE]  
-</tr>
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td align="center" style="padding: 10px; border: none;">
+      <a href="LINK_GITHUB_CARLA">
+        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_CARLA" alt="Carla Bianca Santos Latorre"><br>
+        <sub><b>Carla Bianca Santos Latorre</b></sub>
+      </a>
+    </td>
+    <td align="center" style="padding: 10px; border: none;">
+      <a href="LINK_GITHUB_DENISE">
+        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_DENISE" alt="Denise Luri Onari"><br>
+        <sub><b>Denise Luri Onari</b></sub>
+      </a>
+    </td>
+    <td align="center" style="padding: 10px; border: none;">
+      <a href="LINK_GITHUB_EVELIN">
+        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_EVELIN" alt="Evelin Priscilla Une Santos"><br>
+        <sub><b>Evelin Priscilla Une Santos</b></sub>
+      </a>
+    </td>
+    <td align="center" style="padding: 10px; border: none;">
+      <a href="LINK_GITHUB_FELIPE">
+        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_FELIPE" alt="Felipe Freire Silva"><br>
+        <sub><b>Felipe Freire Silva</b></sub>
+      </a>
+    </td>
+    <td align="center" style="padding: 10px; border: none;">
+      <a href="LINK_GITHUB_HENRIQUE">
+        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_HENRIQUE" alt="Henrique Seiki Fukuzaki"><br>
+        <sub><b>Henrique Seiki Fukuzaki</b></sub>
+      </a>
+    </td>
+    <td align="center" style="padding: 10px; border: none;">
+      <a href="LINK_GITHUB_JULIANA">
+        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_JULIANA" alt="Juliana Silva"><br>
+        <sub><b>Juliana Silva</b></sub>
+      </a>
+    </td>
+    <td align="center" style="padding: 10px; border: none;">
+      <a href="LINK_GITHUB_PAULO">
+        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_PAULO" alt="Paulo Ney Ferreira Vieira"><br>
+        <sub><b>Paulo Ney Ferreira Vieira</b></sub>
+      </a>
+    </td>
+     <td align="center" style="padding: 10px; border: none;">
+      <a href="LINK_GITHUB_YVES">
+        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_YVES" alt="Yves Danilo Bocutti"><br>
+        <sub><b>Yves Danilo Bocutti</b></sub>
+      </a>
+    </td>
+  </tr>
 </table>
 
 ## Pré-requisitos
@@ -124,20 +168,8 @@ Este sumário lista as entregas principais, prazos e notas relevantes.
 *   [ ] Completar os pré-requisitos e comandos para rodar o projeto em cada sistema operacional
 *   [ ] Incluir informações de uso do projeto
 *   [ ] Inserir as notas de licença
+```
 
-**Melhorias de Organização:**
+**Observação:**
 
-*   **Cronograma Unificado:** Combinei "Entregas" e "Cronograma de Atividades" em um único cronograma para maior clareza.
-*   **Sumário de Entregas:** Criei um sumário das entregas principais para uma visão geral rápida.
-*   **Próximos Passos:** Adicionei uma seção "Próximos Passos" para lembrar as tarefas pendentes para completar o README.
-*   **Formatação:** Padronizei a formatação das tabelas e listas para melhorar a legibilidade.
-*   **Comentários:** Inseri comentários explicativos para cada seção.
-
-**Como Usar:**
-
-1.  Copie o texto acima.
-2.  Cole em um arquivo chamado `README.md` no seu repositório GitHub.
-3.  Edite o arquivo, substituindo os placeholders (ex: `[TEXTO DESCRITIVO DO PROJETO]`, `URL_DA_BADGE`) pelas informações reais do seu projeto.
-4.  Faça commit e push das alterações para o GitHub.
-
-Este README.md bem organizado fornecerá aos visitantes do seu repositório uma visão clara e concisa do seu projeto, suas funcionalidades, como configurá-lo e usá-lo, e o cronograma de atividades e entregas.
+Este é o código completo do README.md. Lembre-se de substituir todos os placeholders `[ ]` pelas informações reais do seu projeto.
