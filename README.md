@@ -1,68 +1,12 @@
-```md
-<h1 align='center'>NOME DO PROJETO</h1>
-<h2 align='center'>Ferramenta para subsidiar a gestão baseada em análise de dados aplicada ao Centro Educacional Unificado Parque Bristol</h2>
-
-![GitHub language count](URL_DA_BADGE)
-![GitHub](URL_DA_LICENÇA)
-![GitHub repo size](URL_TAMANHO_REPO)
-
 ## Descrição do Projeto
-
-Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem como objetivo criar uma ferramenta para subsidiar a gestão do Centro Educacional Unificado Parque Bristol, utilizando análise de dados como base. A ferramenta visa fornecer insights e informações úteis para a administração do centro educacional, ajudando a tomar decisões informadas.
+[TEXTO DESCRITIVO DO PROJETO]
 
 ## Participantes
 
-<table style="border-collapse: collapse; width: 100%;">
-  <tr>
-    <td align="center" style="padding: 10px; border: none;">
-      <a href="LINK_GITHUB_CARLA">
-        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_CARLA" alt="Carla Bianca Santos Latorre"><br>
-        <sub><b>Carla Bianca Santos Latorre</b></sub>
-      </a>
-    </td>
-    <td align="center" style="padding: 10px; border: none;">
-      <a href="LINK_GITHUB_DENISE">
-        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_DENISE" alt="Denise Luri Onari"><br>
-        <sub><b>Denise Luri Onari</b></sub>
-      </a>
-    </td>
-    <td align="center" style="padding: 10px; border: none;">
-      <a href="LINK_GITHUB_EVELIN">
-        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_EVELIN" alt="Evelin Priscilla Une Santos"><br>
-        <sub><b>Evelin Priscilla Une Santos</b></sub>
-      </a>
-    </td>
-    <td align="center" style="padding: 10px; border: none;">
-      <a href="LINK_GITHUB_FELIPE">
-        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_FELIPE" alt="Felipe Freire Silva"><br>
-        <sub><b>Felipe Freire Silva</b></sub>
-      </a>
-    </td>
-    <td align="center" style="padding: 10px; border: none;">
-      <a href="LINK_GITHUB_HENRIQUE">
-        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_HENRIQUE" alt="Henrique Seiki Fukuzaki"><br>
-        <sub><b>Henrique Seiki Fukuzaki</b></sub>
-      </a>
-    </td>
-    <td align="center" style="padding: 10px; border: none;">
-      <a href="LINK_GITHUB_JULIANA">
-        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_JULIANA" alt="Juliana Silva"><br>
-        <sub><b>Juliana Silva</b></sub>
-      </a>
-    </td>
-    <td align="center" style="padding: 10px; border: none;">
-      <a href="LINK_GITHUB_PAULO">
-        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_PAULO" alt="Paulo Ney Ferreira Vieira"><br>
-        <sub><b>Paulo Ney Ferreira Vieira</b></sub>
-      </a>
-    </td>
-     <td align="center" style="padding: 10px; border: none;">
-      <a href="LINK_GITHUB_YVES">
-        <img style="border-radius: 50%; width: 70px;" src="URL_FOTO_YVES" alt="Yves Danilo Bocutti"><br>
-        <sub><b>Yves Danilo Bocutti</b></sub>
-      </a>
-    </td>
-  </tr>
+<table>
+<tr>
+<td align="center"><a href="LINK_GITHUB"><img style="border-radius: 50%;" src="FOTO_PERFIL" width="100px;" alt="NOME"/><br /><sub><b>NOME</b></sub></a><br/></td>
+[REPETIR PARA CADA PARTICIPANTE]  
 </table>
 
 ## Pré-requisitos
@@ -170,6 +114,4 @@ Este sumário lista as entregas principais, prazos e notas relevantes.
 *   [ ] Inserir as notas de licença
 ```
 
-**Observação:**
 
-Este é o código completo do README.md. Lembre-se de substituir todos os placeholders `[ ]` pelas informações reais do seu projeto.
