@@ -75,7 +75,7 @@ Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem co
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronograma de Atividades e Entregas</title>
+    
 
 </head>
 <body>
