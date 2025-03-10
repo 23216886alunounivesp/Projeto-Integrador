@@ -13,7 +13,7 @@
 
 ## 📋 Descrição do Projeto
 
-Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem como objetivo criar uma ferramenta para subsidiar 
+Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem como objetivo criar uma ferramenta para subsidiar a gestão de dados de uma empresa. A aplicação visa facilitar o cadastro, organização e consulta das informações, oferecendo uma solução prática e eficiente para a administração da insitituição.
 
 ---
 
