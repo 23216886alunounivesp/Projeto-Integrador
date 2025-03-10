@@ -4,7 +4,7 @@
 ## Descrição do Projeto
 Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem como objetivo criar uma ferramenta para subsidiar 
 
-##KANBAN DO PROJETO
+## KANBAN DO PROJETO
 <p>
     <strong>KANBAN DO PROJETO</strong>: 
     <a href="https://github.com/users/23216886alunounivesp/projects/1" target="_blank">DRP14-PJI110-SALA-004GRUPO-007</a> - Acesse para visualizar o quadro Kanban do projeto, onde as atividades e tarefas estão organizadas para acompanhamento e gestão do progresso.
