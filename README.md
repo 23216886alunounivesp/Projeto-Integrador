@@ -7,12 +7,12 @@ Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem co
 
 ## Cenário
 
-[Texto descritivo do cenário ]
+
 
 
 ## Problema 
 
-[TEXTO DESCRITIVO DO PROBLEMA
+
 
 
 
@@ -70,33 +70,145 @@ Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem co
     </td>
   </tr>
 </table>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Atividades e Entregas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        hr {
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
 
-## Cronograma de Atividades e Entregas
+<h2>Cronograma de Atividades e Entregas</h2>
+<p>Este cronograma detalha as atividades e entregas do projeto, seguindo o modelo de quinzenas.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Quinzena</th>
+            <th>Início</th>
+            <th>Atividade</th>
+            <th>Vencimento das Atividades</th>
+            <th>Carência</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>17/02/2025</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>03/03/2025</td>
+            <td>Plano de Ação</td>
+            <td>11/03/2025 às 23:59</td>
+            <td>16/03/2025 às 23:59</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>17/03/2025</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>31/03/2025</td>
+            <td>Relatório Parcial</td>
+            <td>08/04/2025 às 23:59</td>
+            <td>13/04/2025 às 23:59</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>14/04/2025</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>28/04/2025</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>12/05/2025</td>
+            <td>Relatório Final, Avaliação Colaborativa e Vídeo</td>
+            <td>20/05/2025 às 23:59</td>
+            <td>25/05/2025 às 23:59</td>
+        </tr>
+    </tbody>
+</table>
 
-Este cronograma detalha as atividades e entregas do projeto, seguindo o modelo de quinzenas.
+<hr>
 
-|  Quinzena | Início      | Atividade                             | Vencimento das Atividades | Carência      |
-| :--------: | :----------: | :------------------------------------- | :-----------------------: | :------------: |
-|    1     |  17/02/2025  |                                         |                           |                |
-|    2     |  03/03/2025  |  Plano de Ação                          |     11/03/2025 às 23:59    |  16/03/2025 às 23:59  |
-|    3     |  17/03/2025  |                                         |                           |                |
-|    4     |  31/03/2025  |  Relatório Parcial                       |     08/04/2025 às 23:59    |  13/04/2025 às 23:59  |
-|    5     |  14/04/2025  |                                         |                           |                |
-|    6     |  28/04/2025  |                                         |                           |                |
-|    7     |  12/05/2025  |  Relatório Final, Avaliação Colaborativa e Vídeo  |     20/05/2025 às 23:59    |  25/05/2025 às 23:59  |
+<h2>Entregas (Sumário)</h2>
+<p>Este sumário lista as entregas principais, prazos e notas relevantes.</p>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Entrega</th>
+            <th>Prazo</th>
+            <th>Notas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>✅</td>
+            <td>Plano de Ação</td>
+            <td>11/03/2025</td>
+            <td>Entregar o plano detalhado das ações.</td>
+        </tr>
+        <tr>
+            <td>✅</td>
+            <td>Relatório Parcial</td>
+            <td>08/04/2025</td>
+            <td>Entregar relatório com progresso do projeto.</td>
+        </tr>
+        <tr>
+            <td>✅</td>
+            <td>Relatório Final, Avaliação Colaborativa e Vídeo</td>
+            <td>20/05/2025</td>
+            <td>Entrega final do relatório e avaliação.</td>
+        </tr>
+    </tbody>
+</table>
 
----
-
-## Entregas (Sumário)
-
-Este sumário lista as entregas principais, prazos e notas relevantes.
-
-|     | Entrega                             | Prazo       | Notas                                       |
-|:---:|:-------------------------------------:|:-----------:|:--------------------------------------------:|
-| ✅ | Plano de Ação                        | 11/03/2025  | Entregar o plano detalhado das ações.        |
-| ✅ | Relatório Parcial                    | 08/04/2025  | Entregar relatório com progresso do projeto. |
-| ✅ | Relatório Final, Avaliação Colaborativa e Vídeo | 20/05/2025  | Entrega final do relatório e avaliação.  |
-
+</body>
+</html>
 ---
 
 
