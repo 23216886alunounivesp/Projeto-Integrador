@@ -29,7 +29,7 @@ Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem co
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plano de Ação - Desenvolvimento</title>
+   
 </head>
 <body>
 
@@ -70,7 +70,7 @@ Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem co
 
 ## Respositório Documental
 <p>
-
+     <strong>PASTA COMPARTILHADA</strong>: 
     <a href="https://alunounivespbr-my.sharepoint.com/:f:/r/personal/23216886_aluno_univesp_br/Documents/PROJETO%20P1?csf=1&web=1&e=AJm0Qd1" target="_blank">Acesse para visualizar o repostório de documentos e artefatos
 </p>
 
