@@ -1,80 +1,41 @@
+<h1 align='center'>PROJETO INTEGRADOR</h1>
+<h2 align='center'>Ferramenta para </h2>
+
 ## Descrição do Projeto
-[TEXTO DESCRITIVO DO PROJETO]
+Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem como objetivo criar uma ferramenta para subsidiar 
+
+
+## Cenário
+
+[Texto descritivo do cenário ]
+
+
+## Problema 
+
+[TEXTO DESCRITIVO DO PROBLEMA
+
+
 
 ## Participantes
 
 <table>
 <tr>
-<td align="center"><a href="LINK_GITHUB"><img style="border-radius: 50%;" src="FOTO_PERFIL" width="100px;" alt="NOME"/><br /><sub><b>NOME</b></sub></a><br/></td>
-[REPETIR PARA CADA PARTICIPANTE]  
+<td align="center"><a href="https://github.com/Lucassilvacost"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/201174332?v=4" width="100px;" alt="LUCAS SILVA COSTA"/><br /><sub><b> LUCAS SILVA COSTA  </b></sub></a><br/></td>
+<td align="center"><a href="https://github.com/GalvaoJose"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59177696?v=4" width="100px;" alt=" JOSE ANTONIO SOARES GALVAO"/><br /><sub><b>  JOSE ANTONIO SOARES GALVAO  </b></sub></a><br/></td>
+<td align="center"><a href="https://github.com/rafaelhonorato03"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/114627686?v=4" width="100px;" alt="  RAFAEL AMORIM HONORATO"/><br /><sub><b>  RAFAEL AMORIM HONORATO </b></sub></a><br/></td>
+<td align="center"><a href="https://github.com/SouVitorGabriel"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/29991853?v=4" width="100px;" alt="VITOR GABRIEL DE SOUZA ALENCAR
+
+"/><br /><sub><b> VITOR GABRIEL DE SOUZA ALENCAR </b></sub></a><br/></td>
+
+<td align="center"><a href="https://github.com/uSantozZ"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/202187360?v=4" width="100px;" alt="LEONARDO DOS SANTOS OLIVEIRA
+
+"/><br /><sub><b> LEONARDO DOS SANTOS OLIVEIRA </b></sub></a><br/></td>
+
+<td align="center"><a href="https://github.com/23216886alunounivesp"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/139832358?v=4" width="100px;" alt="LEONARDO TOMAZ DE SOUZA NETO
+
+"/><br /><sub><b> LEONARDO TOMAZ DE SOUZA NETO </b></sub></a><br/></td>
+
 </table>
-
-## Pré-requisitos
-
-- [LISTA DE PRÉ-REQUISITOS]
-
-## Como Rodar o Projeto
-
-### Linux (Ubuntu/Debian)
-```bash
-[COMANDOS]
-```
-
-### macOS
-```bash
-[COMANDOS]
-```
-
-### Windows
-```bash
-[COMANDOS]
-```
-
-## Configurar o Ambiente Virtual
-
-```bash
-[COMANDOS DE CRIAÇÃO]
-```
-
-### Ativar o ambiente virtual
-
-#### Windows:
-```bash
-[COMANDO]
-```
-
-#### macOS e Linux:
-```bash
-[COMANDO]
-```
-
-## Instalar Dependências
-
-```bash
-[COMANDOS]
-```
-
-## Executar o Projeto
-
-```bash
-[COMANDOS]
-```
-
-## Uso
-
-[TEXTO EXPLICATIVO]
-
----
-
-[NOTAS DE LICENÇA]
-
-# NOME DO PROJETO
-
-## Tema
-
-[TEXTO DESCRITIVO DO TEMA]
-
----
 
 ## Cronograma de Atividades e Entregas
 
@@ -104,14 +65,9 @@ Este sumário lista as entregas principais, prazos e notas relevantes.
 
 ---
 
-## Próximos Passos
 
-*   [ ] Definir as URLs das badges (GitHub language count, licença, tamanho do repo)
-*   [ ] Preencher a descrição detalhada do projeto
-*   [ ] Adicionar informações dos participantes (foto, link do GitHub)
-*   [ ] Completar os pré-requisitos e comandos para rodar o projeto em cada sistema operacional
-*   [ ] Incluir informações de uso do projeto
-*   [ ] Inserir as notas de licença
-```
+
+
+
 
 
