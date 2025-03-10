@@ -4,6 +4,12 @@
 ## Descrição do Projeto
 Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem como objetivo criar uma ferramenta para subsidiar 
 
+##KANBAN DO PROJETO
+<p>
+    <strong>KANBAN DO PROJETO</strong>: 
+    <a href="https://github.com/users/23216886alunounivesp/projects/1" target="_blank">DRP14-PJI110-SALA-004GRUPO-007</a> - Acesse para visualizar o quadro Kanban do projeto, onde as atividades e tarefas estão organizadas para acompanhamento e gestão do progresso.
+</p>
+
 
 ## Cenário
 
@@ -11,6 +17,52 @@ Este projeto integrador foi desenvolvido como parte do curso da UNIVESP e tem co
 
 
 ## Problema 
+
+## PLANO DE AÇÃO
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ação - Desenvolvimento</title>
+</head>
+<body>
+
+<h2>Plano de Ação - Desenvolvimento</h2>
+<table border="1" cellspacing="0" cellpadding="8">
+    <thead>
+        <tr>
+            <th>Quinzena de referência</th>
+            <th>Etapas do relatório e demais elaboradas pelos alunos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Quinzena Zero</td>
+            <td>Análise do cenário da pesquisa.</td>
+        </tr>
+        <tr>
+            <td>Primeira quinzena</td>
+            <td>Início do Levantamento Bibliográfico.</td>
+        </tr>
+        <tr>
+            <td>Segunda quinzena</td>
+            <td>Relatório parcial: Entrega.</td>
+        </tr>
+        <tr>
+            <td>Quarta quinzena</td>
+            <td>Solução parcial: Entrega.</td>
+        </tr>
+        <tr>
+            <td>Quinta quinzena</td>
+            <td>Revisão do relatório final e do vídeo.</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+
 
 
 
