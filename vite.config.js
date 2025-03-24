@@ -1,20 +1,19 @@
-// vite.config.js
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
-import react from '@vitejs/plugin-react'; // Adicione esta linha
 
 export default defineConfig({
   plugins: [
-    react(), // Plugin do React deve vir primeiro
+    react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['pwa-192x192.png', 'pwa-512x512.png'], // Lista de assets
+      includeAssets: ['favicon.ico', 'pwa-192x192.png', 'pwa-512x512.png'], // Lista de assets
       manifest: {
         name: 'Pilates PWA',
         short_name: 'Pilates',
         start_url: '/',
         display: 'standalone',
-        background_color: '#ffffff',
+        background_color: '#FFFFFF',
         theme_color: '#000000',
         icons: [
           {
@@ -26,12 +25,13 @@ export default defineConfig({
           {
             src: 'pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png}'], // Padrões para cache
+        globPatterns: ['**/*.{js,css,html,png,svg}'], // Padrões para cache
         runtimeCaching: [
           {
             urlPattern: /\.(png|jpg|jpeg|svg)$/,
@@ -39,7 +39,10 @@ export default defineConfig({
           }
         ]
       },
-      strategies: 'generateSW' // Força geração do Service Worker
+      strategies: 'generateSW', // Força geração do Service Worker
+      devOptions: {
+        enabled: true
+      }
     })
-  ]
+  ],
 });

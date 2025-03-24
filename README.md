@@ -1,6 +1,4 @@
-Ok, vamos criar um README.md para o seu projeto Pilates PWA, detalhando o que foi feito e como configurar o ambiente para outros desenvolvedores.
-
-**Nome do Projeto:** Pilates PWA
+# Pilates PWA
 
 **Descrição:** Este é um aplicativo web progressivo (PWA) para gerenciamento de aulas de Pilates. Ele foi desenvolvido usando React, Vite e `vite-plugin-pwa` para fornecer uma experiência de usuário rápida, responsiva e offline-first.
 
@@ -32,6 +30,7 @@ Este projeto foi construído usando as seguintes tecnologias:
 *   **CSS:** Para estilização e layout.
 *   **Git:** Para versionamento de código.
 *   **GitHub:** Para hospedagem do repositório e colaboração.
+*   **react-router-dom:** Para o gerenciamento das rotas de navegação
 
 **3. Pré-requisitos**
 
@@ -153,25 +152,30 @@ Para verificar se o PWA está configurado corretamente, siga estes passos:
 **7. Estrutura do Projeto**
 
 A estrutura de arquivos e diretórios do projeto é a seguinte:
-
-```
 pilates-pwa/
 ├── public/
-│   ├── pwa-192x192.png         (Ícone PWA)
-│   ├── pwa-512x512.png         (Ícone PWA)
-│   ├── vite.svg               (Ícone Vite)
-│   └── favicon.ico
+│ ├── pwa-192x192.png (Ícone PWA)
+│ ├── pwa-512x512.png (Ícone PWA)
+│ ├── vite.svg (Ícone Vite)
+│ └── favicon.ico
 ├── src/
-│   ├── App.jsx              (Componente principal da aplicação)
-│   ├── main.jsx             (Ponto de entrada da aplicação)
-│   ├── index.css            (Estilos globais)
-│   └── assets/            (Assets da aplicação)
-│       └── react.svg
-├── vite.config.js           (Configuração do Vite)
-├── package.json             (Metadados e dependências do projeto)
+│ ├── assets/
+│ │ ├── hero-image.webp
+│ │ ├── flexibility-icon.svg
+│ │ ├── core-icon.svg
+│ │ └── stress-icon.svg
+│ ├── pages/
+│ │ ├── Login.jsx
+│ │ ├── MenuAluno.jsx
+│ │ └── MenuOrientador.jsx
+│ ├── App.jsx (Componente principal da aplicação)
+│ ├── App.css (Estilos do componente App)
+│ └── main.jsx (Ponto de entrada da aplicação)
+├── vite.config.js (Configuração do Vite)
+├── package.json (Metadados e dependências do projeto)
 ├── package-lock.json
-└── README.md                (Documentação do projeto)
-```
+└── README.md (Documentação do projeto)
+
 
 **8. Deployment**
 
@@ -198,20 +202,12 @@ Se você quiser contribuir com este projeto, siga estes passos:
 Este projeto está licenciado sob a licença MIT.
 
 ---
+**Histórico de Desenvolvimento:**
+Ao longo do desenvolvimento deste projeto, foram seguidos os seguintes passos:
 
-
-
-
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Criação do projeto com Create React App
+2. Configuração da PWA (Arquivos de manifesto e service worker)
+3. Ajustes para configuração correta do Vite e do PWA.
+4. Correção do erro "React is not defined"
+5. Refatoração do projeto para uma arquitetura mais organizada (Criação de páginas e componentes)
+6. Definição das rotas de navegação
