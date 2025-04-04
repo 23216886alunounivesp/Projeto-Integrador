@@ -1,0 +1,22 @@
+/* src/components/Header.css */
+header {
+    background-color: #f0f0f0; /* Cor cinza bem leve */
+    padding: 10px; /* Ajuste o preenchimento conforme necessário */
+    text-align: center; /* Centraliza o conteúdo */
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333; /* Cor dos links */
+  }
