@@ -1,0 +1,91 @@
+/* src/global.css */
+:root {
+  --branco: #ffffff;
+  --cinza-claro: #f8f8f8;
+  --cor-principal: #A89C91; /* Exemplo */
+  --cor-secundaria: #B3A79D; /* Exemplo */
+  /* Defina outras variáveis conforme necessário */
+  --header-height: 80px; /* Altura do header reduzida */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff; /* Fundo branco padrão */
+  color: #333;
+}
+
+a {
+  color: var(--cor-principal);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.75em;
+  line-height: 1.2;
+  color: #333; /* Cor padrão para títulos */
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--cor-secundaria);
+  color: var(--branco);
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+button:hover {
+  filter: brightness(90%);
+}
+
+
+/* Adiciona espaço no topo para compensar o header fixo */
+.main-content-area {
+  padding-top: var(--header-height);
+}
+
+/* Container da imagem do banner */
+.hero-banner-container {
+  margin: 0;
+  padding: 0;
+  /* Também precisa do padding-top por causa do header fixo */
+  padding-top: var(--header-height);
+  width: 100%;
+  line-height: 0; /* Evita espaço extra abaixo da imagem */
+}
+
+/* Imagem do banner */
+.hero-banner-image {
+  display: block; /* Remove espaço extra */
+  width: 100%;    /* Largura total */
+  height: 220px;  /* Altura do banner REDUZIDA */
+  object-fit: cover; /* Cobre a área sem distorcer */
+}
+
+/* Ajuste responsivo para padding-top e altura do banner */
+ @media (max-width: 768px) {
+    /* Recalcule esta altura com base no header empilhado */
+    /* Este valor é um CHUTE, ajuste conforme a altura real do header responsivo */
+   .main-content-area,
+   .hero-banner-container {
+      padding-top: 130px; /* Exemplo - AJUSTE CONFORME HEADER EMPILHADO */
+   }
+   .hero-banner-image {
+      height: 160px; /* Altura REDUZIDA do banner em telas menores */
+   }
+ }

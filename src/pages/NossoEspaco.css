@@ -1,0 +1,35 @@
+/* src/pages/NossoEspaco.css */
+.nosso-espaco {
+    padding: 20px;
+  }
+  
+  .nosso-espaco h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .nosso-espaco p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .galeria img,
+  .galeria video {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .nosso-espaco h2 {
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
