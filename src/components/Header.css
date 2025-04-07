@@ -1,0 +1,104 @@
+/* src/components/Header.css */
+.site-header {
+  background-color: #ffffff; /* Fundo branco */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  position: fixed;        /* Posição fixa no topo */
+  top: 0;
+  left: 0;
+  width: 100%;            /* Largura total */
+  z-index: 1000;          /* Fica acima de outro conteúdo */
+  height: 80px;           /* Altura reduzida */
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between; /* Logo/Texto à esquerda, links à direita */
+  align-items: center;           /* Alinha verticalmente ao centro */
+  height: 100%;                  /* Ocupa toda a altura do .site-header */
+  max-width: 1200px;             /* Limita a largura do conteúdo interno */
+  margin: 0 auto;                /* Centraliza o .nav-bar */
+  padding: 0 20px;               /* Padding horizontal */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 50px; /* Altura do logo ajustada */
+  width: auto;
+  margin-right: 15px; /* Espaço entre logo e texto */
+  object-fit: contain;
+}
+
+.studio-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.2em; /* Fonte reduzida */
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 30px; /* Espaçamento entre links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 0.9em; /* Tamanho menor para links */
+  transition: color 0.2s ease-in-out;
+  padding: 5px 0;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+/* --- Responsividade para o Header --- */
+@media (max-width: 992px) {
+  .studio-name {
+    font-size: 1.1em; /* Ajuste responsivo */
+  }
+   .nav-links li {
+    margin-left: 20px; /* Menos espaço */
+  }
+}
+
+@media (max-width: 768px) {
+  /* A altura 'auto' aqui significa que a altura será definida pelo conteúdo empilhado */
+  .site-header {
+     height: auto;
+     padding: 15px 0; /* Padding vertical para respiro */
+  }
+  .nav-bar {
+    flex-direction: column; /* Empilha */
+    align-items: center; /* Centraliza */
+    max-width: none;
+    padding: 0 15px;
+  }
+  .logo-container {
+    margin-bottom: 10px; /* Espaço abaixo do logo/nome */
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 15px; /* Espaçamento entre links */
+  }
+  .nav-links li {
+    margin-left: 0;
+  }
+  .nav-links a {
+    font-size: 0.85em; /* Links ainda menores */
+  }
+}

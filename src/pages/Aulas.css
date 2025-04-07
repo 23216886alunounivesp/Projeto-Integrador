@@ -1,0 +1,30 @@
+/* src/pages/Aulas.css */
+.aulas {
+    padding: 20px;
+  }
+  
+  .aulas h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .aulas p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .aulas ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .aulas li {
+    margin-bottom: 5px;
+  }
+  
+  .aulas h2 {
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }

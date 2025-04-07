@@ -1,0 +1,254 @@
+/* src/pages/NossoEspaco.css */
+
+/* Container principal da página */
+.nosso-espaco-page {
+  max-width: 1100px; /* Largura máxima do conteúdo */
+  margin: 40px auto; /* Margem vertical e centralização horizontal */
+  padding: 20px; /* Espaçamento interno */
+  color: #333; /* Cor padrão do texto */
+}
+
+/* --- Seção Superior: Contato e Mapa --- */
+.contact-info-map-section {
+  display: flex;
+  gap: 40px; /* Espaço entre detalhes de contato e mapa */
+  flex-wrap: wrap; /* Quebra linha em telas menores */
+  margin-bottom: 60px; /* Espaço abaixo desta seção */
+}
+
+/* Coluna de Detalhes de Contato */
+.contact-details {
+  flex: 1; /* Ocupa o espaço disponível */
+  min-width: 280px; /* Largura mínima */
+}
+
+.contact-details h2 {
+  font-size: 1.8em;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  color: #1a365d; /* Cor de destaque */
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start; /* Alinha ícone e texto no topo */
+  margin-bottom: 25px; /* Espaço entre itens de contato */
+}
+
+/* Placeholder/Estilo para Ícones */
+.icon-placeholder {
+  font-size: 1.5em; /* Tamanho do ícone/emoji */
+  margin-right: 15px;
+  color: var(--cor-principal, #A89C91); /* Cor do ícone */
+  margin-top: 2px; /* Ajuste fino vertical */
+  width: 30px; /* Largura fixa para alinhamento */
+  text-align: center;
+}
+/* Se usar Font Awesome: */
+/* .contact-item i { font-size: 1.5em; ... } */
+
+
+.contact-text {
+  display: flex;
+  flex-direction: column; /* Empilha título e valor */
+}
+
+.contact-text strong {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+.contact-text span,
+.contact-text a {
+  font-size: 1em;
+  color: #444;
+  line-height: 1.5;
+}
+.contact-text a {
+  color: var(--cor-principal, #A89C91);
+  text-decoration: underline;
+}
+.contact-text a:hover {
+  color: #333;
+}
+.social-links a {
+  margin-right: 5px;
+}
+
+
+/* Coluna do Mapa */
+.map-container {
+  flex: 1.5; /* Ocupa mais espaço */
+  min-width: 300px;
+}
+
+/* Estilo para o iframe do Google Maps */
+.map-container iframe {
+  width: 100%;
+  height: 400px; /* Altura do mapa (ajuste) */
+  border: 0;
+  border-radius: 8px; /* Borda arredondada */
+}
+
+/* --- Seção Inferior: Perguntas e Formulário --- */
+.questions-form-section {
+  /* Pode adicionar mais margem superior se necessário */
+   margin-top: 60px;
+}
+
+.questions-image-wrapper {
+   display: flex;
+   align-items: center;
+   gap: 30px;
+   margin-bottom: 40px;
+   flex-wrap: wrap; /* Permite quebrar */
+}
+
+.questions-image-wrapper h2 {
+   flex: 1; /* Ocupa espaço */
+   font-size: 2em;
+   color: #1a365d;
+   min-width: 250px; /* Para não ficar muito espremido */
+}
+
+.studio-image-placeholder {
+   flex: 1; /* Ocupa espaço */
+   min-width: 250px;
+   height: 200px; /* Altura da imagem */
+   background-color: #f0f0f0;
+   border-radius: 8px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #aaa;
+   font-style: italic;
+}
+.studio-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+/* Formulário de Contato */
+.contact-form {
+  background-color: #fdfdfd; /* Fundo levemente diferente */
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Quebra em telas menores */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex: 1; /* Ocupa espaço disponível */
+  min-width: calc(50% - 10px); /* Tenta manter 2 colunas */
+  margin-bottom: 20px; /* Espaço entre linhas quando empilhado */
+}
+.form-group.half-width {
+  /* Já definido pelo flex: 1 e min-width acima */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #333;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--cor-principal, #A89C91);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(168, 156, 145, 0.2); /* Sombra suave no foco */
+}
+
+.form-group textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.captcha-placeholder {
+  background-color: #f0f0f0;
+  border: 1px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.submit-area {
+  text-align: right; /* Alinha botão à direita */
+}
+
+.submit-button {
+  background-color: var(--cor-secundaria, #B3A79D);
+  color: var(--branco, #fff);
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.submit-button:hover {
+  background-color: var(--cor-principal, #A89C91);
+  filter: brightness(110%);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+  .contact-info-map-section {
+    /* Coluna de contato e mapa ficam empilhadas */
+    gap: 30px;
+  }
+
+  .map-container iframe {
+    height: 300px; /* Mapa menor em telas pequenas */
+  }
+
+  .questions-image-wrapper {
+     gap: 20px;
+     text-align: center; /* Centraliza título quando empilhado */
+  }
+   .questions-image-wrapper h2 {
+      width: 100%; /* Título ocupa toda largura */
+      margin-bottom: 15px;
+   }
+
+  .form-row {
+    gap: 0; /* Remove gap lateral, usa margin-bottom do form-group */
+  }
+  .form-group,
+  .form-group.half-width {
+     min-width: 100%; /* Ocupa toda a largura */
+     margin-bottom: 20px;
+  }
+
+  .submit-area {
+    text-align: center; /* Centraliza botão */
+  }
+}
