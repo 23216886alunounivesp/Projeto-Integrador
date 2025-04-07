@@ -210,4 +210,4 @@ Ao longo do desenvolvimento deste projeto, foram seguidos os seguintes passos:
 3. Ajustes para configuração correta do Vite e do PWA.
 4. Correção do erro "React is not defined"
 5. Refatoração do projeto para uma arquitetura mais organizada (Criação de páginas e componentes)
-6. Definição das rotas de navegação
+6. Definição das rotas de navegaçãoaçailandi
