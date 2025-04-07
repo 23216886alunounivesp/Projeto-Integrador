@@ -1,5 +1,8 @@
+
 # Projeto-Integrador
 Projeto Integrador P1
+
+
 <img src="https://user-images.githubusercontent.com/50468352/141820811-412e9364-7f5c-4889-826a-fcba23b92e23.png" width="350" />
 
 # <div align="center">PROJETO INTEGRADOR</div>
@@ -155,6 +158,7 @@ Este projeto está sob a licença MIT.
 <div align="center">
   <b>© 2025 UNIVESP - Projeto Integrador</b>
 </div>
+
 
 
 
@@ -371,3 +375,5 @@ Ao longo do desenvolvimento deste projeto, foram seguidos os seguintes passos:
 4. Correção do erro "React is not defined"
 5. Refatoração do projeto para uma arquitetura mais organizada (Criação de páginas e componentes)
 6. Definição das rotas de navegaçãoaçailandi
+
+
