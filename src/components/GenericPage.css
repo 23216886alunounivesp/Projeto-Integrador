@@ -1,0 +1,17 @@
+/* src/components/GenericPage.css */
+.generic-page {
+    max-width: 1100px;
+     margin: 0 auto;
+     padding: 20px;
+     text-align: left;
+  }
+  
+  .generic-page h1 {
+     font-size: 2em;
+     color: #333;
+     margin-bottom: 35px;
+  }
+  
+  .page-content {
+    /* Adicione estilos adicionais aqui se necessário */
+  }
