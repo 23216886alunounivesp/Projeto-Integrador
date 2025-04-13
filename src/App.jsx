@@ -1,36 +1,37 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import Header from './components/Header'; // Se quiser o Header de volta, descomente
 import Principal from './components/Principal';
 import NossoEspaco from './pages/NossoEspaco';
 import Instrutores from './pages/Instrutores';
 import Aulas from './pages/Aulas';
 import './global.css';
+import LandingScreen from './components/LandingScreen';
 
 // Importa a imagem do banner da pasta src/assets
 import heroBannerSrc from './assets/fotoabaixobarra.jpg';
-// Ajuste o caminho './assets/' se necessário
 
 function App() {
   return (
     <BrowserRouter>
-      {/* Header fixo fora do fluxo principal */}
-      <Header />
+      {/* Header fixo fora do fluxo principal - REMOVA ou COMENTE se não quiser na landing screen */}
+      {/* <Header /> */}
 
-      {/* Container e Imagem do Banner abaixo do Header */}
-      <div className="hero-banner-container">
+      {/* Container e Imagem do Banner abaixo do Header - REMOVA ou COMENTE se não quiser na landing screen */}
+      {/* <div className="hero-banner-container">
         <img
           src={heroBannerSrc} // Usa a variável importada
           alt="Banner Studio Pilates"
           className="hero-banner-image"
         />
-      </div>
+      </div> */}
 
       {/* Conteúdo principal das páginas, com padding para compensar header */}
       <main className="main-content-area">
         <Routes>
-          <Route path="/" element={<Principal />} />
+          <Route path="/" element={<LandingScreen />} /> {/* LandingScreen na rota raiz */}
+          <Route path="/principal" element={<Principal />} /> {/* Rota para a página Principal */}
           <Route path="/nosso-espaco" element={<NossoEspaco />} />
           <Route path="/instrutores" element={<Instrutores />} />
           <Route path="/aulas" element={<Aulas />} />

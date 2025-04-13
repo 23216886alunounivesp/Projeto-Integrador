@@ -1,35 +1,302 @@
 /* src/pages/NossoEspaco.css */
-.nosso-espaco {
-    padding: 20px;
+
+/* Container principal da página */
+.nosso-espaco-page {
+  max-width: 1100px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centralização horizontal (margem superior/inferior tratada pelo PageHeader ou espaçamento global) */
+  padding: 40px 20px; /* Espaçamento interno vertical e horizontal */
+  color: #333; /* Cor padrão do texto */
+}
+
+/* --- Seção Superior: Contato e Mapa --- */
+.contact-info-map-section {
+  display: flex;
+  gap: 40px; /* Espaço entre detalhes de contato e mapa */
+  flex-wrap: wrap; /* Quebra linha em telas menores */
+  margin-bottom: 60px; /* Espaço abaixo desta seção */
+}
+
+/* Coluna de Detalhes de Contato */
+.contact-details {
+  flex: 1; /* Ocupa o espaço disponível, mas menos que o mapa */
+  min-width: 280px; /* Largura mínima */
+}
+
+.contact-details h2 {
+  font-size: 1.8em;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  color: #1a365d; /* Cor de destaque */
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start; /* Alinha ícone e texto no topo */
+  margin-bottom: 25px; /* Espaço entre itens de contato */
+}
+
+/* Placeholder/Estilo para Ícones */
+.icon-placeholder {
+  font-size: 1.5em; /* Tamanho do ícone/emoji */
+  margin-right: 15px;
+  color: var(--cor-principal, #A89C91); /* Cor do ícone */
+  margin-top: 2px; /* Ajuste fino vertical */
+  width: 30px; /* Largura fixa para alinhamento */
+  text-align: center;
+  flex-shrink: 0; /* Impede que o ícone encolha */
+}
+/* Se usar Font Awesome ou outra biblioteca: */
+/* .contact-item i { font-size: 1.5em; ... } */
+
+
+.contact-text {
+  display: flex;
+  flex-direction: column; /* Empilha título e valor */
+}
+
+.contact-text strong {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+.contact-text span,
+.contact-text a {
+  font-size: 1em;
+  color: #444;
+  line-height: 1.5;
+  word-break: break-word; /* Quebra palavras longas se necessário */
+}
+.contact-text a {
+  color: var(--cor-principal, #A89C91);
+  text-decoration: none; /* Remover sublinhado padrão */
+  border-bottom: 1px solid transparent; /* Espaço para sublinhado no hover */
+  transition: border-color 0.2s;
+}
+.contact-text a:hover {
+  /* text-decoration: underline; */ /* Alternativa: usar sublinhado padrão */
+  border-bottom-color: var(--cor-principal, #A89C91); /* Efeito de sublinhado no hover */
+}
+.social-links a {
+  margin-right: 5px;
+}
+
+
+/* Coluna do Mapa */
+.map-container {
+  flex: 1.5; /* Ocupa mais espaço que os detalhes de contato */
+  min-width: 300px;
+  position: relative; /* Necessário para o aspect-ratio com padding-bottom */
+  overflow: hidden; /* Garante que o iframe não ultrapasse os limites */
+  /* Define a proporção do mapa (padding-bottom = height / width * 100%) */
+  /* Exemplo: 56.25% para 16:9 (comum para mapas médios/grandes) */
+  /* Exemplo: 75% para 4:3 */
+  padding-bottom: 65%; /* Ajuste este valor para a proporção desejada */
+  border-radius: 8px; /* Borda arredondada no container */
+}
+
+/* Estilo para o iframe do Google Maps DENTRO do container */
+.map-container iframe {
+  position: absolute; /* Posicionamento absoluto dentro do container relativo */
+  top: 0;
+  left: 0;
+  width: 100%;    /* Ocupa 100% da largura do container */
+  height: 100%;   /* Ocupa 100% da altura definida pelo padding-bottom do container */
+  border: 0;      /* Remove a borda padrão do iframe */
+  /* border-radius: 8px; */ /* Pode remover daqui se já está no container */
+}
+
+/* --- Seção Inferior: Perguntas e Formulário --- */
+.questions-form-section {
+  /* Pode adicionar mais margem superior se necessário */
+   margin-top: 60px;
+}
+
+.questions-image-wrapper {
+   display: flex;
+   align-items: center;
+   gap: 30px;
+   margin-bottom: 40px;
+   flex-wrap: wrap; /* Permite quebrar em telas menores */
+}
+
+.questions-image-wrapper h2 {
+   flex: 1; /* Ocupa espaço disponível */
+   font-size: 2em;
+   color: #1a365d;
+   min-width: 250px; /* Para não ficar muito espremido */
+   margin: 0; /* Remover margem padrão do h2 */
+}
+
+.studio-image-placeholder {
+   flex: 1; /* Ocupa espaço disponível */
+   min-width: 250px;
+   height: 200px; /* Altura da imagem/placeholder */
+   background-color: #f0f0f0;
+   border-radius: 8px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #aaa;
+   font-style: italic;
+   overflow: hidden; /* Caso a imagem seja maior */
+}
+.studio-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cobre a área sem distorcer */
+  border-radius: 8px;
+}
+
+
+/* Formulário de Contato */
+.contact-form {
+  background-color: #fdfdfd; /* Fundo levemente diferente */
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Quebra em telas menores */
+  margin-bottom: 20px; /* Espaço entre as linhas do formulário */
+}
+/* Remove a margem inferior da última linha para evitar espaçamento extra */
+.form-row:last-of-type {
+  margin-bottom: 0;
+}
+
+
+.form-group {
+  flex: 1; /* Ocupa espaço disponível */
+  /* Tenta manter 2 colunas, subtraindo metade do gap */
+  min-width: calc(50% - 10px);
+  /* Adiciona margem inferior quando os itens empilham */
+  /* Removido para usar margin-bottom do .form-row */
+  /* margin-bottom: 20px; */
+}
+/* Garante que o grupo de largura total ocupe realmente toda a largura */
+.form-group:not(.half-width) {
+    min-width: 100%;
+}
+
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #333;
+  box-sizing: border-box; /* Garante que padding não aumente o tamanho */
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--cor-principal, #A89C91);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(168, 156, 145, 0.2); /* Sombra suave no foco */
+}
+
+.form-group textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 120px; /* Altura mínima para a área de texto */
+}
+
+.captcha-placeholder {
+  background-color: #f0f0f0;
+  border: 1px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  border-radius: 5px;
+  margin-top: 20px; /* Adiciona espaço acima */
+}
+
+.submit-area {
+  text-align: right; /* Alinha botão à direita por padrão */
+  margin-top: 20px; /* Adiciona espaço acima do botão */
+}
+
+.submit-button {
+  background-color: var(--cor-secundaria, #B3A79D);
+  color: var(--branco, #fff);
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.1s;
+  text-transform: uppercase;
+}
+.submit-button:hover {
+  background-color: var(--cor-principal, #A89C91);
+  filter: brightness(110%);
+}
+.submit-button:active {
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+  .nosso-espaco-page {
+    padding: 30px 15px; /* Menos padding em telas menores */
   }
-  
-  .nosso-espaco h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+
+  .contact-info-map-section {
+    /* Coluna de contato e mapa ficam empilhadas naturalmente devido ao flex-wrap */
+    gap: 30px; /* Menor espaço entre as seções empilhadas */
   }
-  
-  .nosso-espaco p {
-    line-height: 1.6;
-    margin-bottom: 15px;
+
+  /* Ajustar proporção/altura do mapa para telas menores */
+  .map-container {
+     padding-bottom: 75%; /* Exemplo: Mudar para proporção 4:3 */
+     /* Ou se usou altura fixa, ajuste-a: */
+     /* height: 300px; */
   }
-  
-  .galeria {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+
+  .questions-image-wrapper {
+     gap: 20px;
+     /* Centralizar título quando empilhado */
+     /* text-align: center; - opcional, se preferir */
   }
-  
-  .galeria img,
-  .galeria video {
-    width: 300px;
-    height: 200px;
-    margin: 10px;
-    object-fit: cover;
-    border-radius: 5px;
+   .questions-image-wrapper h2 {
+      width: 100%; /* Título ocupa toda largura */
+      margin-bottom: 15px; /* Espaço abaixo do título quando empilhado */
+      text-align: center; /* Centraliza o título */
+   }
+
+  .form-row {
+    gap: 0; /* Remove gap lateral, itens vão empilhar */
+    margin-bottom: 0; /* Remove margem da linha, cada grupo terá sua margem */
   }
-  
-  .nosso-espaco h2 {
-    font-size: 2em;
-    margin-top: 30px;
-    margin-bottom: 15px;
+  .form-group,
+  .form-group.half-width {
+     min-width: 100%; /* Ocupa toda a largura */
+     margin-bottom: 20px; /* Adiciona espaço abaixo de cada campo */
   }
+  /* Remove a margem inferior do último grupo para evitar espaço extra */
+  .form-group:last-child {
+      margin-bottom: 0;
+  }
+
+  .submit-area {
+    text-align: center; /* Centraliza botão */
+  }
+}
