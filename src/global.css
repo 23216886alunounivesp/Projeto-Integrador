@@ -54,38 +54,67 @@ button:hover {
 }
 
 
-/* Adiciona espaço no topo para compensar o header fixo */
+/* Adiciona espaço no topo para compensar o header fixo - REMOVIDO SE NÃO USA MAIS HEADER FIXO */
+/*
 .main-content-area {
   padding-top: var(--header-height);
 }
+*/
 
-/* Container da imagem do banner */
+/* Container da imagem do banner - REMOVIDO SE NÃO USA MAIS BANNER FIXO */
+/*
 .hero-banner-container {
   margin: 0;
   padding: 0;
-  /* Também precisa do padding-top por causa do header fixo */
   padding-top: var(--header-height);
   width: 100%;
-  line-height: 0; /* Evita espaço extra abaixo da imagem */
+  line-height: 0;
 }
-
-/* Imagem do banner */
 .hero-banner-image {
-  display: block; /* Remove espaço extra */
-  width: 100%;    /* Largura total */
-  height: 220px;  /* Altura do banner REDUZIDA */
-  object-fit: cover; /* Cobre a área sem distorcer */
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+*/
+
+/* --- ESTILOS GLOBAIS REUTILIZÁVEIS --- */
+
+/* Container Principal para Conteúdo das Páginas */
+.page-content-container {
+  max-width: 1100px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centralização horizontal */
+  padding: 40px 20px; /* Espaçamento interno vertical e horizontal */
 }
 
-/* Ajuste responsivo para padding-top e altura do banner */
+/* Estilo reutilizável para Ícones/Placeholders */
+.icon-placeholder {
+  font-size: 1.5em;
+  margin-right: 15px;
+  color: var(--cor-principal, #A89C91);
+  margin-top: 2px;
+  width: 30px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+
+/* --- AJUSTES RESPONSIVOS GLOBAIS --- */
+
+/* Ajuste responsivo para padding do container principal */
  @media (max-width: 768px) {
-    /* Recalcule esta altura com base no header empilhado */
-    /* Este valor é um CHUTE, ajuste conforme a altura real do header responsivo */
+   .page-content-container {
+     padding: 30px 15px; /* Menos padding */
+   }
+
+   /* Ajuste responsivo para banner/header se ainda existirem e forem fixos */
+   /*
    .main-content-area,
    .hero-banner-container {
-      padding-top: 130px; /* Exemplo - AJUSTE CONFORME HEADER EMPILHADO */
+      padding-top: 130px;
    }
    .hero-banner-image {
-      height: 160px; /* Altura REDUZIDA do banner em telas menores */
+      height: 160px;
    }
+   */
  }
