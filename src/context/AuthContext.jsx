@@ -6,144 +6,106 @@ import { useNavigate } from 'react-router-dom';
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
+  // Mantenha session e user como null inicialmente
   const [session, setSession] = useState(null);
   const [user, setUser] = useState(null);
   const [isInstructor, setIsInstructor] = useState(false);
+  // Começa loading como true OBRIGATORIAMENTE
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   console.log('AuthProvider: Montado ou Renderizado');
 
-  const checkIsInstructor = useCallback(async (userId) => {
-    console.log(`[checkIsInstructor] Iniciando para userId: ${userId}`);
-    if (!userId) {
-      console.log("[checkIsInstructor] userId nulo ou indefinido. Retornando false.");
-      return false;
-    }
-    try {
-      console.log(`[checkIsInstructor] Executando query: supabase.from('instrutores').select('id', { head: true }).eq('user_id', ${userId})`);
-      const { error, status } = await supabase
-        .from('instrutores')
-        .select('id', { head: true })
-        .eq('user_id', userId);
-
-      console.log(`[checkIsInstructor] Resultado da Query - Status: ${status}, Error: ${JSON.stringify(error)}`);
-
-      if (error && status !== 406) {
-        console.error('[checkIsInstructor] Erro na query Supabase:', error);
-        return false;
-      }
-      const found = status === 200;
-      console.log(`[checkIsInstructor] Registro encontrado? ${found}. Retornando ${found}.`);
-      return found;
-    } catch (err) {
-      console.error('[checkIsInstructor] Erro inesperado no try/catch em checkIsInstructor:', err);
-      return false;
-    }
-  }, []);
+  const checkIsInstructor = useCallback(async (userId) => { /* ... como antes ... */ }, []);
 
   useEffect(() => {
     let isMounted = true;
     console.log("AuthContext useEffect: Registrando listeners e buscando sessão inicial...");
 
-    const handleAuthSession = async (currentSession, isInitialSession = false) => {
-      if (!isMounted) {
-        console.log("handleAuthSession: Componente desmontado, abortando atualização de estado.");
-        return;
-      }
+    // Tenta pegar a sessão armazenada imediatamente
+    supabase.auth.getSession().then(async ({ data: { session: initialSession } }) => {
+      if (!isMounted) return;
+      console.log("AuthContext useEffect (getSession): Sessão inicial obtida:", initialSession);
 
-      console.log("handleAuthSession: Processando sessão. É inicial?", isInitialSession, "Sessão:", currentSession ? "Existe" : "Nula");
-      const currentUser = currentSession?.user ?? null;
+      const currentUser = initialSession?.user ?? null;
       let currentIsInstructor = false;
 
-      // Log detalhado do currentUser ANTES de chamar checkIsInstructor
-      console.log("handleAuthSession: currentUser ANTES da verificação de instrutor:", JSON.stringify(currentUser, null, 2));
-
-
       if (currentUser) {
-        console.log(`handleAuthSession: Usuário encontrado (${currentUser.id}). Chamando checkIsInstructor...`);
+        console.log(`AuthContext useEffect (getSession): Usuário ${currentUser.id} encontrado na sessão inicial. Verificando status de instrutor...`);
         currentIsInstructor = await checkIsInstructor(currentUser.id);
-        console.log(`handleAuthSession: checkIsInstructor retornou ${currentIsInstructor} para usuário ${currentUser.id}`);
       } else {
-        console.log("handleAuthSession: Nenhum usuário na sessão, isInstructor será false.");
+        console.log("AuthContext useEffect (getSession): Nenhum usuário na sessão inicial.");
       }
 
+      // ATUALIZA O ESTADO APENAS APÓS PEGAR A SESSÃO E CHECAR INSTRUTOR
       if (isMounted) {
-        console.log("handleAuthSession: Atualizando estados:", { userId: currentUser?.id, isInstructor: currentIsInstructor, sessionExists: !!currentSession, loading: false });
-        setSession(currentSession);
-        setUser(currentUser); // <<< Ponto crucial: setUser está sendo chamado com o usuário correto?
-        setIsInstructor(currentIsInstructor);
-        setLoading(false);
-
-        // Lógica de redirecionamento
-        if (!isInitialSession && currentUser && currentIsInstructor) {
-          console.log("handleAuthSession: Usuário instrutor logado (não é sessão inicial), redirecionando para /dashboard");
-          navigate('/dashboard', { replace: true });
-        } else if (!isInitialSession && currentUser && !currentIsInstructor) {
-          console.log("handleAuthSession: Usuário não-instrutor logado (não é sessão inicial), redirecionando para /");
-          navigate('/', { replace: true });
-        }
+         console.log("AuthContext useEffect (getSession): Atualizando estados e finalizando loading inicial.");
+         setSession(initialSession);
+         setUser(currentUser);
+         setIsInstructor(currentIsInstructor);
+         setLoading(false); // <-- Ponto chave: setLoading(false) SÓ AQUI na lógica inicial
       }
-    };
 
-    // Verifica sessão inicial
-    supabase.auth.getSession().then(({ data: { session: initialSession } }) => {
-      console.log("AuthContext useEffect: getSession concluído.");
-       // Log detalhado da sessão inicial OBTIDA
-       console.log("AuthContext useEffect (getSession): Objeto initialSession:", JSON.stringify(initialSession, null, 2));
-      handleAuthSession(initialSession, true);
     }).catch(error => {
-      console.error("AuthContext useEffect: Erro em getSession:", error);
+      console.error("AuthContext useEffect (getSession): Erro:", error);
       if (isMounted) {
-        console.log("AuthContext useEffect: Erro em getSession, definindo loading como false e resetando estado.");
-        setSession(null);
-        setUser(null);
-        setIsInstructor(false);
-        setLoading(false);
+        setSession(null); setUser(null); setIsInstructor(false); setLoading(false);
       }
     });
 
-    // Ouve mudanças futuras
-    console.log("AuthContext useEffect: Configurando listener onAuthStateChange...");
+    // Configura o listener para MUDANÇAS FUTURAS
     const { data: authListener } = supabase.auth.onAuthStateChange(
-      (_event, currentSession) => {
-        if (isMounted) { // Verifica se montado antes de processar
-            console.log("AuthContext onAuthStateChange: Evento recebido:", _event);
-             // Log detalhado da sessão recebida no EVENTO:
-             console.log("AuthContext onAuthStateChange: Objeto currentSession:", JSON.stringify(currentSession, null, 2));
+      async (_event, currentSession) => {
+        // Ignora INITIAL_SESSION pois já foi tratado por getSession
+        if (_event === 'INITIAL_SESSION' || !isMounted) return;
 
-            // Simplificado: Processa qualquer mudança relevante, incluindo refresh de token
-            if (_event === 'SIGNED_IN' || _event === 'TOKEN_REFRESHED' || (_event === 'INITIAL_SESSION' && currentSession)) {
-                 handleAuthSession(currentSession, _event === 'INITIAL_SESSION'); // Só redireciona se não for INITIAL_SESSION
-            } else if (_event === 'SIGNED_OUT') {
-                 handleAuthSession(null, false); // Trata logout
-            } else if (_event === 'USER_UPDATED' && currentSession) {
-                 // Apenas atualiza o usuário se ele mudou, sem redirecionar
-                 console.log("AuthContext onAuthStateChange: Evento USER_UPDATED, atualizando usuário localmente.");
-                 setUser(currentSession.user ?? null);
-            } else {
-                 console.log("AuthContext onAuthStateChange: Evento não tratado para redirecionamento:", _event);
-                 // Garante que loading vire false se ainda não o fez
-                 if (loading) setLoading(false);
-            }
+        console.log("AuthContext onAuthStateChange: Evento recebido:", _event);
+        const currentUser = currentSession?.user ?? null;
+        let currentIsInstructor = false;
+
+        if (currentUser) {
+          console.log(`AuthContext onAuthStateChange: Usuário ${currentUser.id} presente na nova sessão. Verificando status de instrutor...`);
+          currentIsInstructor = await checkIsInstructor(currentUser.id);
         } else {
-            console.log("AuthContext onAuthStateChange: Componente desmontado, ignorando evento:", _event);
+          console.log("AuthContext onAuthStateChange: Nenhum usuário na nova sessão.");
+        }
+
+        if (isMounted) {
+            console.log("AuthContext onAuthStateChange: Atualizando estados:", { userId: currentUser?.id, isInstructor: currentIsInstructor });
+            setSession(currentSession);
+            setUser(currentUser);
+            setIsInstructor(currentIsInstructor);
+            // Loading já deve ser false aqui, mas garantir não custa
+            if (loading) setLoading(false);
+
+            // Lógica de redirecionamento para SIGNED_IN/SIGNED_OUT
+            if (_event === 'SIGNED_IN' && currentUser && currentIsInstructor) {
+               console.log("AuthContext onAuthStateChange: SIGNED_IN instrutor, redirecionando para /dashboard");
+               navigate('/dashboard', { replace: true });
+            } else if (_event === 'SIGNED_IN' && currentUser && !currentIsInstructor) {
+                console.log("AuthContext onAuthStateChange: SIGNED_IN não-instrutor, redirecionando para /");
+                navigate('/', { replace: true });
+            } else if (_event === 'SIGNED_OUT'){
+                console.log("AuthContext onAuthStateChange: SIGNED_OUT, redirecionando para /login");
+                // Pode redirecionar para home ou login após logout
+                navigate('/login', { replace: true });
+            }
         }
       }
     );
 
-    // Limpeza
     return () => {
       isMounted = false;
       authListener?.subscription.unsubscribe();
       console.log("AuthContext: Listener removido (desmontagem).");
     };
-  }, [checkIsInstructor, navigate, loading]); // Readicionei loading aqui para garantir que a lógica de setLoading funcione corretamente
+  // Removi loading das dependências
+  }, [checkIsInstructor, navigate]);
 
   const value = { session, user, isInstructor, loading, logout: () => supabase.auth.signOut() };
-
   console.log("AuthProvider: Renderizando com:", { loading, userId: user?.id, isInstructor: !!isInstructor });
 
+  // Só renderiza children quando loading for false
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
@@ -151,10 +113,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth deve ser usado dentro de um AuthProvider');
-  }
-  return context;
-};
+export const useAuth = () => { /* ... hook ... */ };
