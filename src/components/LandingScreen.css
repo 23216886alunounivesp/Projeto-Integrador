@@ -1,0 +1,69 @@
+/* src/components/LandingScreen.css */
+.landing-screen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centralizar horizontalmente */
+    justify-content: center; /* Centralizar verticalmente */
+    min-height: 100vh; /* Tela cheia verticalmente */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .landing-title {
+    font-size: 2.5em; /* Aumentando o tamanho da fonte */
+    color: #333;
+    margin-bottom: 25px; /* Adicionando margem inferior para a linha */
+    padding-bottom: 20px; /* Adicionando padding inferior para espaçamento acima da linha */
+    border-bottom: 1px solid #eee; /* Adicionando a linha divisória */
+    width: 100%; /* Garante que a linha ocupe toda a largura disponível */
+    max-width: 400px; /* Limita a largura da linha para alinhar com o menu */
+    margin-left: auto; /* Centraliza a linha */
+    margin-right: auto; /* Centraliza a linha */
+  }
+  
+  .landing-nav {
+    width: 100%;
+    max-width: 400px; /* Largura máxima do menu */
+  }
+  
+  .landing-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .landing-links li {
+    margin-bottom: 15px;
+  }
+  
+  .landing-links li a {
+    display: block; /* Link ocupa toda a largura do li */
+    padding: 12px 20px;
+    background-color: #f8f8f8;
+    color: #555;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: 1px solid #eee; /* Adicionando uma borda sutil */
+  }
+  
+  .landing-links li a:hover {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    .landing-title {
+      font-size: 2.2em; /* Ajustando tamanho em telas menores */
+      margin-bottom: 20px; /* Ajustando margem em telas menores */
+      padding-bottom: 15px; /* Ajustando padding em telas menores */
+    }
+    .landing-links li {
+      margin-bottom: 10px;
+    }
+    .landing-links li a {
+      padding: 10px 15px;
+      font-size: 0.95em;
+    }
+  }
