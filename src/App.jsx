@@ -1,43 +1,60 @@
 // src/App.jsx
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+// Removido BrowserRouter daqui
+import { Routes, Route } from 'react-router-dom';
+
+// Páginas e Componentes Públicos
+import LandingScreen from './components/LandingScreen';
 import Principal from './components/Principal';
 import NossoEspaco from './pages/NossoEspaco';
 import Instrutores from './pages/Instrutores';
 import Aulas from './pages/Aulas';
-import './global.css';
+import LoginPage from './pages/LoginPage';
 
-// Importa a imagem do banner da pasta src/assets
-import heroBannerSrc from './assets/fotoabaixobarra.jpg';
-// Ajuste o caminho './assets/' se necessário
+// Componentes de Autenticação e Dashboard
+import PrivateRoute from './components/PrivateRoute';
+import Dashboard from './pages/Dashboard';
+
+// Componentes CRUD para o Dashboard
+import AulasCRUD from './pages/AulasCRUD'; // Importe AulasCRUD
+import GerenciarContato from './pages/GerenciarContato'; // << IMPORTADO
+// import AlunosCRUD from './pages/AlunosCRUD'; // Descomente quando criar
+// import InstrutoresCRUD from './pages/InstrutoresCRUD'; // Descomente quando criar
 
 function App() {
   return (
-    <BrowserRouter>
-      {/* Header fixo fora do fluxo principal */}
-      <Header />
+    // BrowserRouter está agora em main.jsx
+    <main>
+      <Routes>
+        {/* Rotas Públicas */}
+        <Route path="/" element={<LandingScreen />} />
+        <Route path="/principal" element={<Principal />} />
+        <Route path="/nosso-espaco" element={<NossoEspaco />} />
+        <Route path="/instrutores" element={<Instrutores />} />
+        <Route path="/aulas" element={<Aulas />} />
+        <Route path="/login" element={<LoginPage />} />
 
-      {/* Container e Imagem do Banner abaixo do Header */}
-      <div className="hero-banner-container">
-        <img
-          src={heroBannerSrc} // Usa a variável importada
-          alt="Banner Studio Pilates"
-          className="hero-banner-image"
-        />
-      </div>
+        {/* Rota Protegida do Dashboard */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
+          {/* Define AulasCRUD como a página padrão do dashboard */}
+          <Route index element={<AulasCRUD />} />
+          <Route path="aulas" element={<AulasCRUD />} />
+          <Route path="contato" element={<GerenciarContato />} /> {/* << ROTA ADICIONADA */}
+          {/* Descomente as rotas abaixo quando os componentes estiverem prontos */}
+          {/* <Route path="alunos" element={<AlunosCRUD />} /> */}
+          {/* <Route path="instrutores" element={<InstrutoresCRUD />} /> */}
+        </Route>
 
-      {/* Conteúdo principal das páginas, com padding para compensar header */}
-      <main className="main-content-area">
-        <Routes>
-          <Route path="/" element={<Principal />} />
-          <Route path="/nosso-espaco" element={<NossoEspaco />} />
-          <Route path="/instrutores" element={<Instrutores />} />
-          <Route path="/aulas" element={<Aulas />} />
-          {/* Adicione outras rotas aqui se necessário */}
-        </Routes>
-      </main>
-    </BrowserRouter>
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
+      </Routes>
+    </main>
   );
 }
 
