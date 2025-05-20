@@ -55,39 +55,55 @@ module.exports.handler = async (event, context) => {
   }
 
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: JSON.stringify({ message: 'Método não permitido.' }), headers: { 'Allow': 'POST', 'Content-Type': 'application/json' }};
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ message: 'Método não permitido.' }),
+      headers: { 'Allow': 'POST', 'Content-Type': 'application/json' },
+    };
   }
 
   const { user } = context.clientContext;
   if (!user || !user.sub) {
-    return { statusCode: 401, body: JSON.stringify({ message: 'Acesso não autorizado: Requer autenticação.' }), headers: { 'Content-Type': 'application/json' }};
+    return {
+      statusCode: 401,
+      body: JSON.stringify({ message: 'Acesso não autorizado: Requer autenticação.' }),
+      headers: { 'Content-Type': 'application/json' },
+    };
   }
   const userIdMakingRequest = user.sub;
   console.log(`[createAula] Requisição autenticada do usuário ID: ${userIdMakingRequest}`);
 
   const isAuthorizedInstructor = await checkIsInstructor(userIdMakingRequest);
   if (!isAuthorizedInstructor) {
-    return { statusCode: 403, body: JSON.stringify({ message: 'Acesso negado: Permissão de instrutor ativo necessária.' }), headers: { 'Content-Type': 'application/json' }};
+    return {
+      statusCode: 403,
+      body: JSON.stringify({ message: 'Acesso negado: Permissão de instrutor ativo necessária.' }),
+      headers: { 'Content-Type': 'application/json' },
+    };
   }
   console.log(`[createAula] Usuário ${userIdMakingRequest} autorizado como instrutor ativo.`);
 
   let aulaData;
   try {
-    if (!event.body) throw new Error("Corpo da requisição está vazio.");
+    if (!event.body) throw new Error('Corpo da requisição está vazio.');
     aulaData = JSON.parse(event.body);
     console.log('[createAula] Dados recebidos:', aulaData);
 
     if (!aulaData.nome || typeof aulaData.nome !== 'string' || aulaData.nome.trim() === '') {
-      throw new Error("Nome da aula é obrigatório.");
+      throw new Error('Nome da aula é obrigatório.');
     }
     if (!aulaData.instrutor_id || typeof aulaData.instrutor_id !== 'string') {
-      throw new Error("ID do instrutor é obrigatório.");
+      throw new Error('ID do instrutor é obrigatório.');
     }
     // Adicione mais validações aqui
 
   } catch (parseError) {
     console.error('[createAula] Erro ao parsear/validar dados:', parseError);
-    return { statusCode: 400, body: JSON.stringify({ message: `Dados inválidos: ${parseError.message}` }), headers: { 'Content-Type': 'application/json' }};
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: `Dados inválidos: ${parseError.message}` }),
+      headers: { 'Content-Type': 'application/json' },
+    };
   }
 
   try {
@@ -100,14 +116,14 @@ module.exports.handler = async (event, context) => {
       instrutor_id: aulaData.instrutor_id,
       capacidade_maxima: aulaData.capacidade_maxima ? parseInt(aulaData.capacidade_maxima, 10) : null,
       ativa: aulaData.ativa !== undefined ? aulaData.ativa : true,
-      equipamentos: aulaData.equipamentos || null, // Adicionado
+      equipamentos: aulaData.equipamentos || null,
     };
     console.log('[createAula] Inserindo no Supabase:', newAulaRecord);
 
     const { data, error: insertError } = await supabaseAdmin
       .from('aulas')
       .insert([newAulaRecord])
-      .select('*, instrutores(id, nome)') // Retorna aula com dados do instrutor
+      .select('*, instrutores(id, nome)')
       .single();
 
     if (insertError) {

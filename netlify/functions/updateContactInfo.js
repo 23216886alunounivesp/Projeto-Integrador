@@ -1,35 +1,29 @@
 // netlify/functions/updateContactInfo.js
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
-// Variáveis de ambiente configuradas no Netlify UI
 const supabaseUrl = process.env.SUPABASE_URL;
-// IMPORTANTE: Usar a SERVICE KEY para operações de escrita no backend
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
-if (!supabaseUrl || !supabaseServiceKey) {
-  console.error('[updateContactInfo] Erro: Variáveis Supabase URL ou Service Key não definidas.');
-  return {
-    statusCode: 500,
-    body: JSON.stringify({ message: 'Configuração interna do servidor incompleta.' }),
-    headers: { 'Content-Type': 'application/json' },
-  };
-}
+let supabaseAdmin;
 
-// Cliente Supabase com Service Key para bypassar RLS quando necessário (após verificar permissões)
-const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
-});
+if (supabaseUrl && supabaseServiceKey) {
+  supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
+  });
+} else {
+  console.error('[updateContactInfo] FATAL: Variáveis Supabase URL ou Service Key não definidas na inicialização do módulo.');
+}
 
 // Função auxiliar para verificar se o usuário logado é um instrutor ativo
 const checkIsInstructor = async (userId) => {
   console.log(`[updateContactInfo - checkIsInstructor] Verificando se user ID: ${userId} é instrutor.`);
   if (!userId) return false;
   try {
-    const { error, status } = await supabaseAdmin // Usa o cliente admin para esta verificação
+    const { error, status } = await supabaseAdmin
       .from('instrutores')
       .select('id', { head: true })
       .eq('user_id', userId)
-      .eq('ativo', true); // Garante que o instrutor esteja ativo
+      .eq('ativo', true);
 
     if (error && status !== 406) throw error;
     const found = status === 200;
@@ -41,8 +35,16 @@ const checkIsInstructor = async (userId) => {
   }
 };
 
-export const handler = async (event, context) => {
+module.exports.handler = async (event, context) => {
   console.log('[updateContactInfo] Função chamada. Método:', event.httpMethod);
+
+  if (!supabaseAdmin) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: 'Erro de configuração do servidor: Cliente Supabase Admin não inicializado.' }),
+      headers: { 'Content-Type': 'application/json' },
+    };
+  }
 
   // 1. Permitir apenas método PUT ou POST (PUT é mais semântico para update completo)
   if (event.httpMethod !== 'PUT' && event.httpMethod !== 'POST') {
@@ -87,12 +89,12 @@ export const handler = async (event, context) => {
     console.log('[updateContactInfo] Dados recebidos para atualizar:', contactDataToUpdate);
 
     // Remover campos que não devem ser atualizados diretamente ou não existem
-    delete contactDataToUpdate.config_key;
-    delete contactDataToUpdate.created_at;
-    delete contactDataToUpdate.updated_at; // O trigger cuidará disso
+    delete contactDataToUpdate?.config_key;
+    delete contactDataToUpdate?.created_at;
+    delete contactDataToUpdate?.updated_at; // O trigger cuidará disso
 
     // Validação básica (verificar se pelo menos um campo útil foi enviado)
-    if (Object.keys(contactDataToUpdate).length === 0) {
+    if (!contactDataToUpdate || Object.keys(contactDataToUpdate).length === 0) {
       throw new Error("Nenhum dado válido para atualização foi fornecido.");
     }
     // Adicione validações mais específicas para formato de email, telefone, etc., se necessário
@@ -109,11 +111,11 @@ export const handler = async (event, context) => {
   // 5. Atualizar no Banco de Dados Supabase
   try {
     console.log('[updateContactInfo] Atualizando informações de contato no Supabase...');
-    const { data, error: updateError } = await supabaseAdmin // Usa o cliente admin
+    const { data, error: updateError } = await supabaseAdmin
       .from('contact_info')
       .update(contactDataToUpdate)
-      .eq('config_key', 'main_contact_info') // Garante que estamos atualizando a única linha correta
-      .select('telefone, email, endereco, whatsapp, updated_at') // Retorna os campos atualizados
+      .eq('config_key', 'main_contact_info')
+      .select('telefone, email, endereco, whatsapp, updated_at')
       .single();
 
     if (updateError) {
@@ -123,7 +125,7 @@ export const handler = async (event, context) => {
 
     console.log('[updateContactInfo] Informações de contato atualizadas:', data);
     return {
-      statusCode: 200, // OK
+      statusCode: 200,
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     };
