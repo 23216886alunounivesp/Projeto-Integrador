@@ -1,43 +1,49 @@
 // src/App.jsx
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import { Routes, Route } from 'react-router-dom';
+
+import LandingScreen from './components/LandingScreen';
 import Principal from './components/Principal';
 import NossoEspaco from './pages/NossoEspaco';
 import Instrutores from './pages/Instrutores';
 import Aulas from './pages/Aulas';
-import './global.css';
-
-// Importa a imagem do banner da pasta src/assets
-import heroBannerSrc from './assets/fotoabaixobarra.jpg';
-// Ajuste o caminho './assets/' se necessário
+import LoginPage from './pages/LoginPage';
+import PrivateRoute from './components/PrivateRoute';
+import Dashboard from './pages/Dashboard';
+import AulasCRUD from './pages/AulasCRUD';
+import GerenciarContato from './pages/GerenciarContato';
+// import NotFoundPage from './pages/NotFoundPage'; // Se você criar um
 
 function App() {
   return (
-    <BrowserRouter>
-      {/* Header fixo fora do fluxo principal */}
-      <Header />
+    <main>
+      <Routes>
+        <Route path="/" element={<LandingScreen />} />
+        <Route path="/principal" element={<Principal />} />
+        <Route path="/nosso-espaco" element={<NossoEspaco />} />
+        <Route path="/instrutores" element={<Instrutores />} />
+        <Route path="/aulas" element={<Aulas />} />
+        <Route path="/login" element={<LoginPage />} />
 
-      {/* Container e Imagem do Banner abaixo do Header */}
-      <div className="hero-banner-container">
-        <img
-          src={heroBannerSrc} // Usa a variável importada
-          alt="Banner Studio Pilates"
-          className="hero-banner-image"
-        />
-      </div>
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
+          <Route index element={<AulasCRUD />} />
+          <Route path="aulas" element={<AulasCRUD />} />
+          <Route path="contato" element={<GerenciarContato />} />
+          {/* Futuras rotas do dashboard: */}
+          {/* <Route path="alunos" element={<AlunosCRUD />} /> */}
+          {/* <Route path="instrutores" element={<InstrutoresCRUD />} /> */}
+        </Route>
 
-      {/* Conteúdo principal das páginas, com padding para compensar header */}
-      <main className="main-content-area">
-        <Routes>
-          <Route path="/" element={<Principal />} />
-          <Route path="/nosso-espaco" element={<NossoEspaco />} />
-          <Route path="/instrutores" element={<Instrutores />} />
-          <Route path="/aulas" element={<Aulas />} />
-          {/* Adicione outras rotas aqui se necessário */}
-        </Routes>
-      </main>
-    </BrowserRouter>
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
+      </Routes>
+    </main>
   );
 }
 

@@ -1,39 +1,10 @@
 /* src/components/Principal.css */
 
-/* Estilos base para o container principal da página */
-.principal-content {
-  /* Define a largura máxima do conteúdo */
-  max-width: 1100px;
+/* REMOVA as regras de .principal-content que definem max-width, margin, padding, text-align: left */
+/* MANTENHA apenas estilos específicos se houver */
 
-  /* Centraliza o bloco horizontalmente */
-  margin-left: auto;
-  margin-right: auto;
-
-  /* Margens verticais */
-  margin-top: 40px;
-  margin-bottom: 40px;
-
-  /* Padding horizontal para espaçamento interno das bordas */
-  padding-left: 20px;
-  padding-right: 20px;
-
-  /* Padding vertical */
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-  /* Garante que o texto DENTRO do bloco alinhe à esquerda por padrão */
-  text-align: left;
-}
-
-/* Título principal da página */
-.principal-content h1 {
-  /* text-align: left; */ /* Herdado do pai, não precisa repetir */
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 35px;
-  /* Remover padding horizontal daqui, já que o container pai tem */
-  /* padding: 0 15px; */
-}
+/* Estilos para o título principal DENTRO do container, se necessário (mas geralmente herdado) */
+/* .page-content-container h1 { ... } */
 
 /* Container flex para as colunas */
 .content-columns {
@@ -41,8 +12,6 @@
   justify-content: space-between;
   gap: 45px;
   flex-wrap: wrap;
-  /* Remover padding horizontal daqui, já que o container pai tem */
-  /* padding: 0 15px; */
   align-items: flex-start;
 }
 
@@ -118,26 +87,20 @@
 }
 
 .services-box ul {
-  list-style: none;
-  /* padding: 0; */ /* Removido antes, pode manter se quiser */
-  /* margin: 0; */ /* Removido antes, pode manter se quiser */
+  list-style: none; /* Remove marcadores padrão */
+  padding: 0;
+  margin: 0;
 }
 
 .services-box li {
   margin-bottom: 10px;
-  padding-left: 20px;
-  position: relative;
+  /* O padding é cuidado pelo flex + icon-placeholder */
+  display: flex; /* Para alinhar ícone e texto */
+  align-items: flex-start; /* Alinha no topo */
 }
 
-/* Marcador customizado */
-.services-box li::before {
- content: '✓';
- position: absolute;
- left: 0;
- top: 1px;
- color: var(--cor-principal, #A89C91);
- font-weight: bold;
-}
+/* Marcador customizado agora é o .icon-placeholder (removido ::before) */
+
 
 /* Botão */
 .cta-section {
@@ -163,28 +126,13 @@
   filter: brightness(110%);
 }
 
-/* --- Responsividade para Principal --- */
+/* --- Responsividade para Principal (ajustes internos) --- */
 @media (max-width: 768px) {
-  .principal-content {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      /* Padding lateral menor em telas pequenas */
-      padding-left: 15px;
-      padding-right: 15px;
-  }
-  .principal-content h1 {
-      font-size: 1.7em;
-      margin-bottom: 25px;
-      text-align: center; /* Centralizar título em telas pequenas */
-      /* Padding removido pois o container pai já tem */
-  }
-   .content-columns {
+  .content-columns {
       gap: 30px;
-      /* Padding removido pois o container pai já tem */
-      /* align-items: initial; */
    }
    .left-column {
-      margin-bottom: 0;
+      margin-bottom: 0; /* Reset se necessário */
    }
    .left-column h2, .right-column h2 {
        font-size: 1.35em;

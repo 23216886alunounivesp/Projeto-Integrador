@@ -1,30 +1,63 @@
 /* src/pages/Aulas.css */
-.aulas {
-    padding: 20px;
-  }
-  
-  .aulas h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-  }
-  
-  .aulas p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  .aulas ul {
-    list-style: disc;
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .aulas li {
-    margin-bottom: 5px;
-  }
-  
-  .aulas h2 {
-    font-size: 2em;
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
+
+/* REMOVA a regra .aulas { padding: 20px; } */
+
+/* Estilos para elementos DENTRO do page-content-container */
+.page-content-container h1 {
+  /* Estilos específicos para o H1 da página de Aulas, se necessário */
+  /* Ex: text-align: center; */
+}
+
+.page-content-container p {
+  line-height: 1.7; /* Aumenta um pouco o espaçamento entre linhas */
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Estilos para as seções (opcional, para organização) */
+.aulas-section, .horarios-section, .agendamento-section {
+  margin-bottom: 40px; /* Espaço entre seções */
+  padding: 20px;
+  background-color: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+.aulas-section:last-child,
+.horarios-section:last-child,
+.agendamento-section:last-child {
+    margin-bottom: 0; /* Remove margem da última seção */
+}
+
+
+.page-content-container h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px; /* Aumenta espaço abaixo do h2 */
+  color: #1a365d;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+/* Estilos para a lista de aulas */
+.aulas-section ul {
+  list-style: none; /* Remove marcadores padrão */
+  padding: 0;
+  margin: 0 0 20px 0; /* Remove margem esquerda, adiciona inferior */
+}
+
+.aulas-section li {
+  margin-bottom: 12px; /* Aumenta espaço entre itens */
+  font-size: 1.05em;
+  color: #444;
+  display: flex; /* Para alinhar ícone e texto */
+  align-items: center; /* Centraliza verticalmente ícone e texto */
+}
+
+/* Estilos para a seção de agendamento (opcional) */
+.agendamento-section p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.agendamento-section strong {
+    color: #333;
+}

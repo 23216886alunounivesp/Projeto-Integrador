@@ -1,0 +1,30 @@
+/* src/components/PageHeader.css */
+.page-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f8f8; /* Cor de fundo levemente cinza, ajuste se necessário */
+    border-bottom: 1px solid #eee; /* Linha divisória inferior sutil */
+    position: sticky; /* Fixa o cabeçalho no topo ao rolar a página */
+    top: 0;
+    z-index: 100; /* Garante que fique acima do conteúdo */
+  }
+  
+  .back-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #555; /* Cor da seta, ajuste se necessário */
+    margin-right: 15px;
+  }
+  
+  .back-arrow {
+    font-size: 1.5em; /* Tamanho da seta, ajuste se necessário */
+    line-height: 1; /* Ajusta a altura da linha para centralizar verticalmente */
+  }
+  
+  .page-title {
+    font-size: 1.2em; /* Tamanho do título, ajuste se necessário */
+    color: #333; /* Cor do título, ajuste se necessário */
+    margin: 0; /* Remove margens padrão do h2 */
+  }
